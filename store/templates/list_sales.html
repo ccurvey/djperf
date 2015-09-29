@@ -1,0 +1,28 @@
+{% extends "bootstrap_base.html" %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+            $('.datatables').DataTable({
+              iDisplayLength : 25
+            });
+        });
+    </script>
+{% endblock scripts %}
+
+{% block content %}
+    <table class="datatables">
+      <thead>
+        <th>Date</th>
+        <th>Customer</th>
+      </thead>
+      <tbody>
+        {% for sale in sales %}
+          <tr>
+            <td>{{sale.order_date|date:"Y-m-d"}}</td>
+            <td>{{sale.customer.name}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock content %}

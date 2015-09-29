@@ -58,6 +58,18 @@ ROOT_URLCONF = 'djperf.urls'
 
 TEMPLATES = [
     {
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'DIRS': [], 
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'extensions': [
+                'jdj_tags.extensions.DjangoCompat',
+            ],
+            "environment": "djperf.jinja2_environment.environment",
+        },        
+    },    
+    
+    {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
         'APP_DIRS': True,

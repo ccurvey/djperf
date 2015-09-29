@@ -1,0 +1,30 @@
+{% extends "bootstrap_base.jinja" %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+            $('.datatables').DataTable({
+              iDisplayLength : 25
+            });
+        });
+    </script>
+{% endblock scripts %}
+
+{% block content %}
+    <table class="datatables">
+      <thead>
+        <th>Date</th>
+        <th>Customer</th>
+        <th>Line Items</th>
+      </thead>
+      <tbody>
+        {% for sale in sales %}
+          <tr>
+            <td>{{sale.order_date.strftime("%Y-%m-%d")}}</td>
+            <td>{{sale.customer.name}}</td>
+            <td>{{sale.lineitem_set.count()}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock content %}

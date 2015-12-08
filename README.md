@@ -29,7 +29,18 @@ This will install django.  You'll need the Postgres client development libraries
 3) You'll also need a Postgres database server.   (I will provide one for presentations.)  On your server, create a database and load it from the dbdump.sql script
 
     psql my-database-name < dbdump.sql
-    
-  (don't forget to adjust DATABASES in settings.py to point to your new database)
+
+4) Adjust settings.py
+
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = ('/path/to/djperf/djperf/static/',)    
+    DATABASES = {}'default': {
+        'ENGINE' 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'your-database-name',
+        'USER': 'database-user',
+        'PASSWORD': 'really-big-secret',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
     
 4)  Fire up a Django server and try to connect to it.

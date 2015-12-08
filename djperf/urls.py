@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import RedirectView
+from django.core.urlresolvers import reverse_lazy
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^store/', include("store.urls")),
+    url(r'^$', RedirectView.as_view(url=reverse_lazy("store.views.list_sales"),
+                                    permanent=False))
+
 ]

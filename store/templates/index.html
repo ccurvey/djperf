@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>DTL</h1>
+  <ul>
+    <li>
+      <a href="{% url 'store.views.list_sales' %}">List Sales</a>
+    </li>
+    <li>
+      <a href="{% url 'store.views.list_sales_select_related' %}">List Sales Select Related</a>
+    </li>
+    <li>
+      <a href="{% url 'store.views.list_sales_line_item_count_prefetch' %}">List Sales Line Item Count Prefetch</a>
+    </li>
+    <li>
+      <a href="{% url 'store.views.list_sales_server_pagination' %}">List Sales Server Pagination</a>
+    </li>
+
+  </ul>
+  
+  <h1>Jinja2</h1>
+  <ul>
+    <li>
+      <a href="{% url 'store.views.list_sales_jinja' %}">List Sales</a>
+    </li>
+    <li>
+      <a href="{% url 'store.views.list_sales_select_related_jinja' %}">List Sales Select Related</a>
+    </li>
+    <li>
+      <a href="{% url 'store.views.list_sales_line_item_count_prefetch_jinja' %}">List Sales Line Item Count Prefetch</a>
+    </li>
+    <li>
+      <a href="{% url 'store.views.list_sales_server_pagination_jinja' %}">List Sales Server Pagination</a>
+    </li>
+
+  </ul>
+{% endblock content %}

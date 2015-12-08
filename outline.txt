@@ -1,0 +1,35 @@
+DJANGO PERFORMANCE PRESENTATION NOTES
+
+= Intro =
+* Get it right before you go live
+* This is short
+* Not covering cacheing
+   * cached fragments
+   * memcached for sessions
+
+= Getting Started =
+
+* Show the app
+* Show the network tab
+* Test 3x for everything
+* Change One Thing At A Time !!!
+* If not playing along, can you spreadsheet for us?
+
+= Settings File =
+* DEBUG
+* ALLOWED_HOSTS
+* CACHED TEMPLATE LOADER
+
+= Select Related =
+
+* Tail the Postgres logs
+* Show the new code
+
+= Prefetch Related ==
+
+* select_related only works to the "one" side of the relationship
+* prefetch_related works to the "many" side of the relationship
+
+= Pagination =
+
+* Only pull one page at a time

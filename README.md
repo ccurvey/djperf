@@ -13,6 +13,14 @@ In order to get a copy of the application for your use:
 
 2) install the required software.  Good idea to use virtualenv
 
+ If you are on Ubuntu, you will need the Postgres client libraries:
+
+    sudo apt-get install libpq-dev
+
+ If you are on Windows, go find a binary copy of the Postgres client libs
+
+ No matter what OS you are on, run:
+
     cd djperf
     pip install -r requirements.txt
     

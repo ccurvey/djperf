@@ -104,8 +104,8 @@ DATABASES = {
         'NAME': 'djperf',
         'USER': 'chris',
         'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
-        'PORT': '5435',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

@@ -30,4 +30,6 @@ This will install django.  You'll need the Postgres client development libraries
 
     psql my-database-name < dbdump.sql
     
+  (don't forget to adjust DATABASES in settings.py to point to your new database)
+    
 4)  Fire up a Django server and try to connect to it.

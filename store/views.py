@@ -3,12 +3,15 @@ from store.models import Sale
 
 # Create your views here.
 
+def index(request):
+    return render(request, "index.html")
+
 #############################################################################
 ## our first naive case
 #############################################################################
 def list_sales(request):
     sales = Sale.objects.all()
-    return render(request, "list_sales.html", {"sales" : sales})
+    return render(request, "list_sales_line_item_count.html", {"sales" : sales})
 
 ############################################################################
 ## using select_related

@@ -23,4 +23,7 @@ urlpatterns = patterns("store.views",
     url("list_sales_line_item_count_jinja/", list_sales_line_item_count_jinja),
     url("list_sales_line_item_count_prefetch_jinja/", list_sales_line_item_count_prefetch_jinja),
     url("list_sales_server_pagination_jinja/", list_sales_server_pagination_jinja),
+
+    url("/","index"),
+
 )

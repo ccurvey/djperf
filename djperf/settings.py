@@ -24,10 +24,9 @@ SECRET_KEY = 'rfdrv0-afxyc9of*q-tf-0$w-cpx3h*fd0l0ls0sq8aap)u-s)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # PERFORMANCE:  turn DEBUG off in production
-DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-
+DEBUG = True            # PERFORMANCE: turn off in prod
+ALLOWED_HOSTS = ["*"]   # PERFORMANCE: set properly in prod
 
 # Application definition
 
@@ -39,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'debug_toolbar',
+#    'debug_toolbar',
     'store',
 )
 
@@ -72,7 +71,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
+        'APP_DIRS': True,  #PERFORMANCE: turn off if using cached loaders
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -81,12 +80,12 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             
-            # PERFORMANCE:  Add this code in production to used cached templates
+            # PERFORMANCE:  Add this code in production to use cached templates
             #'loaders': [
-            #    ('django.template.loaders.cached.Loader', [
-            #        'django.template.loaders.filesystem.Loader',
-            #        'django.template.loaders.app_directories.Loader',
-            #    ]),
+               #('django.template.loaders.cached.Loader', [
+                   #'django.template.loaders.filesystem.Loader',
+                   #'django.template.loaders.app_directories.Loader',
+               #]),
             #],            
         },
     },
@@ -109,6 +108,9 @@ DATABASES = {
     }
 }
 
+# Leave connections open for re-use
+CONN_MAX_AGE = 60  #PERFORMANCE: set to something in production
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -130,5 +132,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ('/home/chris/djperf/djperf/static/',)
 
-# Leave connections open for re-use
-CONN_MAX_AGE = 60

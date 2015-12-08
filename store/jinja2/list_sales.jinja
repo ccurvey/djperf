@@ -15,12 +15,15 @@
       <thead>
         <th>Date</th>
         <th>Customer</th>
+        <th>Line Item Count</th>
       </thead>
       <tbody>
         {% for sale in sales %}
           <tr>
             <td>{{sale.order_date.strftime("%Y-%m-%d")}}</td>
             <td>{{sale.customer.name}}</td>
+            <td>{{sale.lineitem_set.count()}}</td>
+
           </tr>
         {% endfor %}
       </tbody>

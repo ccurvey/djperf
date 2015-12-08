@@ -21,7 +21,7 @@ from django.core.urlresolvers import reverse_lazy
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^store/', include("store.urls")),
-    url(r'^$', RedirectView.as_view(url=reverse_lazy("store.views.list_sales"),
+    url(r'^$', RedirectView.as_view(url=reverse_lazy("store.views.index"),
                                     permanent=False))
 
 ]

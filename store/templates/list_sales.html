@@ -21,6 +21,8 @@
           <tr>
             <td>{{sale.order_date|date:"Y-m-d"}}</td>
             <td>{{sale.customer.name}}</td>
+            <td>{{sale.lineitem_set.count}}</td>
+
           </tr>
         {% endfor %}
       </tbody>

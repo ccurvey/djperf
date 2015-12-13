@@ -10,28 +10,28 @@ def index(request):
 ## our first naive case
 #############################################################################
 def list_sales(request):
-    sales = Sale.objects.all()
+    sales = Sale.objects.all()[:100]
     return render(request, "list_sales_line_item_count.html", {"sales" : sales})
 
 ############################################################################
 ## using select_related
 ############################################################################
 def list_sales_select_related(request):
-    sales = Sale.objects.select_related("customer").all()
+    sales = Sale.objects.select_related("customer").all()[:100]
     return render(request, "list_sales.html", {"sales" : sales})
 
 ############################################################################
 ## adding in the line item count
 ############################################################################
 def list_sales_line_item_count(request):
-    sales = Sale.objects.select_related("customer").all()
+    sales = Sale.objects.select_related("customer").all()[:100]
     return render(request, "list_sales_line_item_count.html", {"sales" : sales})
 
 ############################################################################
 ## what happens if we prefetch the line items?
 ############################################################################
 def list_sales_line_item_count_prefetch(request):
-    sales = Sale.objects.select_related("customer").all().prefetch_related("lineitem_set")
+    sales = Sale.objects.select_related("customer").all().prefetch_related("lineitem_set")[:100]
     return render(request, "list_sales_line_item_count.html", {"sales" : sales})
 
 ############################################################################
@@ -39,7 +39,7 @@ def list_sales_line_item_count_prefetch(request):
 ############################################################################
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 def list_sales_server_pagination(request):
-    sale_list = Sale.objects.select_related("customer").all().prefetch_related("lineitem_set")
+    sale_list = Sale.objects.select_related("customer").all().prefetch_related("lineitem_set")[:100]
     paginator = Paginator(sale_list, 25)
     page = request.GET.get('page')
     try:
@@ -55,23 +55,23 @@ def list_sales_server_pagination(request):
 ## jinja2 versions of our views
 ############################################################################
 def list_sales_jinja(request):
-    sales = Sale.objects.all()
+    sales = Sale.objects.all()[:100]
     return render(request, "list_sales.jinja", {"sales" : sales})
 
 def list_sales_select_related_jinja(request):
-    sales = Sale.objects.select_related("customer").all()
+    sales = Sale.objects.select_related("customer").all()[:100]
     return render(request, "list_sales.jinja", {"sales" : sales})
 
 def list_sales_line_item_count_jinja(request):
-    sales = Sale.objects.select_related("customer").all()
+    sales = Sale.objects.select_related("customer").all()[:100]
     return render(request, "list_sales_line_item_count.jinja", {"sales" : sales})
 
 def list_sales_line_item_count_prefetch_jinja(request):
-    sales = Sale.objects.select_related("customer").all().prefetch_related("lineitem_set")
+    sales = Sale.objects.select_related("customer").all().prefetch_related("lineitem_set")[:100]
     return render(request, "list_sales_line_item_count.jinja", {"sales" : sales})
 
 def list_sales_server_pagination_jinja(request):
-    sale_list = Sale.objects.select_related("customer").all().prefetch_related("lineitem_set")
+    sale_list = Sale.objects.select_related("customer").all().prefetch_related("lineitem_set")[:100]
     paginator = Paginator(sale_list, 25)
     page = request.GET.get('page')
     try:

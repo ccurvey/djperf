@@ -19,12 +19,7 @@
       </thead>
       <tbody>
         {% for sale in sales %}
-          <tr>
-            <td>{{sale.order_date.strftime("%Y-%m-%d")}}</td>
-            <td>{{sale.customer.name}}</td>
-            <td>{{sale.lineitem_set.count()}}</td>
-
-          </tr>
+          {% include 'sale_line.html' %}
         {% endfor %}
       </tbody>
     </table>

@@ -7,7 +7,7 @@ DJANGO PERFORMANCE PRESENTATION NOTES
    * cached fragments
    * memcached for sessions
 
-= Getting Started =
+= Getting Started / Browser Developer Tools =
 
 * Show the app
 * Show the network tab
@@ -25,6 +25,13 @@ DJANGO PERFORMANCE PRESENTATION NOTES
 * Tail the Postgres logs
 * Show the new code
 
+= Django Debug Toolbar =
+
+* Show the SQL that is run
+* Timing things
+* Headers & Other Goodies
+* Can impose signficant cost
+
 = Prefetch Related ==
 
 * select_related only works to the "one" side of the relationship
@@ -33,3 +40,12 @@ DJANGO PERFORMANCE PRESENTATION NOTES
 = Pagination =
 
 * Only pull one page at a time
+
+= Jinja2 =
+
+* Look & See!
+
+= Other Things =
+
+* PGBadger for folks using Postgres
+* 
